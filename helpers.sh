@@ -12,3 +12,7 @@ read_var() {
 log(){
     echo -e "${CYAN}[$(date "+%Y-%m-%d %H:%M:%S")] $1"
 }
+
+cloneOfflineBackend(){
+  cd /home/azureuser/BackDeployer && git checkout master && git pull
+}

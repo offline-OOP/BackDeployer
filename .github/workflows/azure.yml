@@ -7,11 +7,11 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: 'Login to azure'
-        uses: azure/login@v1
+      - name: 'Deploy app'
+        uses: appleboy/ssh-action@master
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-      - name: 'Checkout repo code'
-        uses: actions/checkout@v2
-      - name: 'Run deploy script'
-        run: bash deploy.sh
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.PORT }}
+          script: sh deploy.sh

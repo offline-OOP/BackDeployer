@@ -1,6 +1,7 @@
 #!/bin/bash
 source helpers.sh
 
+cloneOfflineBackend
 docker swarm init
 
 if [[ $(docker network ls | grep "app") = "" ]]; then
