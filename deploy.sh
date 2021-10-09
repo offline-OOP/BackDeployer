@@ -1,6 +1,8 @@
 #!/bin/bash
 source helpers.sh
 
+docker swarm init
+
 if [[ $(docker network ls | grep "app") = "" ]]; then
     log "${GREEN} Creating app network ${CLOSE}"
     docker network create --opt encrypted -d overlay --attachable app
