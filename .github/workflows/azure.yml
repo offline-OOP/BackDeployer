@@ -7,9 +7,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: 'Deploy to azure'
-      - uses: azure/login@v1
+      - name: 'Login to azure'
+        uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
-      - uses: actions/checkout@v2
-      - run: bash deploy.sh
+      - name: 'Checkout repo code'
+        uses: actions/checkout@v2
+        run: bash deploy.sh
