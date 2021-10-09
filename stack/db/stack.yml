@@ -1,27 +1,14 @@
 version: "3.8"
 services:
-  mysql:
-    labels:
-      app: mysql
-    image: mysql:8.0.24
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "200k"
-        max-file: "10"
+  neo4j:
+    image: neo4j:4.0.3
+    volumes:
+      - neo4j-data:/data
     networks:
       - app
-    command: --default-authentication-plugin=mysql_native_password --wait_timeout=28800
     environment:
-      MYSQL_ROOT_PASSWORD: app
-      MYSQL_DATABASE: app
-      MYSQL_USER: app
-      MYSQL_PASSWORD: app
-      MYSQL_ROOT_HOST: '%'
-    deploy:
-      replicas: 1
-    volumes:
-      - mysql-data:/var/lib/mysql
+      NEO4J_AUTH: neo4j/fSmz5B8ajebeg8tP
+      NEO4J_dbms_logs_debug_level: DEBUG
   redis:
     labels:
       app: redis
@@ -39,7 +26,7 @@ services:
       - redis-data:/data
 
 volumes:
-  mysql-data:
+  neo4j-data:
   redis-data:
 networks:
   app:

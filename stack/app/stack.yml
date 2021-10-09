@@ -33,7 +33,7 @@ services:
   app:
     labels:
       - app=app
-    image: $APP_IMAGE
+    image: blakexxxd/oop_node:latest
     networks:
       - app
     logging:
