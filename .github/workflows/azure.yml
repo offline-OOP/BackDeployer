@@ -1,7 +1,7 @@
 on:
   push:
-    tags:
-      - '*'
+    branches:
+      - main
 
 jobs:
   deploy:
@@ -14,4 +14,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
-          script: sh deploy.sh
+          script: sh -c "ls"
