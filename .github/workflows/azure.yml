@@ -13,4 +13,5 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
       - name: 'Checkout repo code'
         uses: actions/checkout@v2
+      - name: 'Run deploy script'
         run: bash deploy.sh
