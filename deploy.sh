@@ -6,6 +6,7 @@ docker swarm init
 create_secret "neo4j_password" "$NEO4J_PASSWORD"
 create_secret "redis_password" "$REDIS_PASSWORD"
 create_secret "mail_password" "$MAIL_PASSWORD"
+create_secret "jwt_key" "$JWT_KEY"
 
 if [[ $(docker network ls | grep "app") = "" ]]; then
     log "${GREEN} Creating app network ${CLOSE}"
