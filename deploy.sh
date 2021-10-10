@@ -1,6 +1,7 @@
 #!/bin/bash
 source helpers.sh
 
+echo "$NEO4J_PASSWORD"
 clone_offline_backend
 docker swarm init
 
