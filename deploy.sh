@@ -4,7 +4,11 @@ source helpers.sh
 clone_offline_backend
 docker swarm init
 
-log "${GREEN} Mail password: ${MAIL_PASSWORD} ${CLOSE}"
+if [[ "$MAIL_PASSWORD" = "" ]]; then
+  log "${GREEN} Mail password: ${MAIL_PASSWORD} ${CLOSE}"
+else
+  log "${GREEN} Not empty mail pass ${CLOSE}"
+fi
 
 create_secret "neo4j_password" "$NEO4J_PASSWORD"
 create_secret "redis_password" "$REDIS_PASSWORD"
