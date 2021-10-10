@@ -4,7 +4,7 @@ source helpers.sh
 clone_offline_backend
 docker swarm init
 
-log "Mail password: ${MAIL_PASSWORD}"
+log "${GREEN} Mail password: ${MAIL_PASSWORD} ${CLOSE}"
 
 create_secret "neo4j_password" "$NEO4J_PASSWORD"
 create_secret "redis_password" "$REDIS_PASSWORD"
