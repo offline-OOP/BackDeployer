@@ -36,6 +36,10 @@ services:
     image: blakexxxd/oop_node:latest
     networks:
       - app
+    secrets: # secrets block only for 'web' service
+      - neo4j_password
+      - redis_password
+      - mail_password
     logging:
       driver: "json-file"
       options:
@@ -58,4 +62,11 @@ services:
 
 networks:
   app:
+    external: true
+secrets:
+  neo4j_password:
+    external: true
+  redis_password:
+    external: true
+  mail_password:
     external: true
