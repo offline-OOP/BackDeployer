@@ -40,6 +40,7 @@ services:
       - neo4j_password
       - redis_password
       - mail_password
+      - jwt_key
     logging:
       driver: "json-file"
       options:
@@ -69,4 +70,6 @@ secrets:
   redis_password:
     external: true
   mail_password:
+    external: true
+  jwt_key:
     external: true
