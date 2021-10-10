@@ -14,5 +14,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
-          script: sh -c "cd BackDeployer && NEO4J_PASSWORD=${{ secrets.NEO4J_PASSWORD }}
-          REDIS_PASSWORD=${{ secrets.REDIS_PASSWORD }} MAIL_PASSWORD=${{ secrets.MAIL_PASSWORD }} bash deploy.sh"
+          script: sh -c "cd BackDeployer && NEO4J_PASSWORD=${{ secrets.NEO4J_PASSWORD }} REDIS_PASSWORD=${{ secrets.REDIS_PASSWORD }} MAIL_PASSWORD=${{ secrets.MAIL_PASSWORD }} bash deploy.sh"
