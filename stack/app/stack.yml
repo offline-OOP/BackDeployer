@@ -34,8 +34,6 @@ services:
     labels:
       - app=app
     image: blakexxxd/oop_node:latest
-    command:
-      - "npm run build && npm run start:prod"
     networks:
       - app
     secrets: # secrets block only for 'web' service
