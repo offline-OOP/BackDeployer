@@ -13,10 +13,6 @@ log(){
     echo -e "${CYAN}[$(date "+%Y-%m-%d %H:%M:%S")] $1"
 }
 
-clone_offline_backend(){
-  cd /home/azureuser/BackDeployer && git checkout master && git pull
-}
-
 create_secret(){
   if [[ $(docker secret ls | grep "$1") = "" ]]; then
       log "${GREEN} Creating $1 secret ${CLOSE}"
