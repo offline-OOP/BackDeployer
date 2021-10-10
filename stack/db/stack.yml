@@ -4,7 +4,7 @@ services:
     image: neo4j:4.0.3
     volumes:
       - neo4j-data:/data
-    user: "$$(id -u):$$(id -g)"
+    user: "$ID_U:$ID_G"
     networks:
       - app
     environment:
