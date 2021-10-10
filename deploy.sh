@@ -3,6 +3,13 @@ source helpers.sh
 
 docker swarm init
 
+if [[ "$JWT_KEY" = "" ]]; then
+  log "${GREEN} no key ${CLOSE}"
+else
+  log "${YELLOW} key exists ${CLOSE}"
+fi
+
+
 create_secret "neo4j_password" "$NEO4J_PASSWORD"
 create_secret "redis_password" "$REDIS_PASSWORD"
 create_secret "mail_password" "$MAIL_PASSWORD"
