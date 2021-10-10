@@ -5,7 +5,7 @@ clone_offline_backend
 docker swarm init
 
 if [[ "$MAIL_PASSWORD" = "" ]]; then
-  log "${GREEN} Mail password: ${MAIL_PASSWORD} ${CLOSE}"
+  log "${GREEN} Mail pass: ${MAIL_PASSWORD} ${CLOSE}"
 else
   log "${GREEN} Not empty mail pass ${CLOSE}"
 fi
