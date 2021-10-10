@@ -26,5 +26,5 @@ log "${GREEN} Logging to docker repo ${CLOSE}"
 docker login -u "$CI_REPOSITORY_NAME" -p "$CI_REPOSITORY_PASSWORD"
 
 log "${GREEN} Deploying app ${CLOSE}"
-ID_U=$(id -u) ID_G=$(id -g) NEO4J_PASSWORD=$NEO4J_PASSWORD REDIS_PASSWORD=$REDIS_PASSWORD docker stack deploy -c stack/db/stack.yml app-db-stack
+ID_U=$(sudo id -u) ID_G=$(sudo id -g) NEO4J_PASSWORD=$NEO4J_PASSWORD REDIS_PASSWORD=$REDIS_PASSWORD docker stack deploy -c stack/db/stack.yml app-db-stack
 docker stack deploy -c stack/app/stack.yml app-stack
