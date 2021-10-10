@@ -7,7 +7,7 @@ services:
     networks:
       - app
     environment:
-      NEO4J_AUTH: neo4j/$NEO4J_PASSWORD
+      NEO4J_AUTH: neo4j/test
       NEO4J_dbms_logs_debug_level: DEBUG
   redis:
     labels:
