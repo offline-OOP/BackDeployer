@@ -9,9 +9,14 @@ jobs:
     steps:
       - name: 'Deploy app'
         uses: appleboy/ssh-action@master
+        env:
+          NEO4J_PASSWORD: ${{ secrets.NEO4J_PASSWORD }}
+          REDIS_PASSWORD: ${{ secrets.REDIS_PASSWORD }}
+          MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
-          script: sh -c "cd BackDeployer && NEO4J_PASSWORD=${{ secrets.NEO4J_PASSWORD }} REDIS_PASSWORD=${{ secrets.REDIS_PASSWORD }} MAIL_PASSWORD=${{ secrets.MAIL_PASSWORD }} bash deploy.sh"
+          envs: NEO4J_PASSWORD,REDIS_PASSWORD,MAIL_PASSWORD
+          script: sh -c "cd BackDeployer && bash deploy.sh"
