@@ -33,7 +33,7 @@ services:
   offline-frontend:
     labels:
       - app=frontend
-    image: blakexxxd/offline-frontend:latest
+    image: blakexxxd/offline-front:latest
     networks:
       - app
     logging:
