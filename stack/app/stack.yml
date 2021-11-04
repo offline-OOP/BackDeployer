@@ -27,7 +27,7 @@ services:
       - mode: host
         protocol: tcp
         published: 3000
-        target: 3001
+        target: 3000
       - mode: host
         protocol: tcp
         published: 443
