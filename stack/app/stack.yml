@@ -30,10 +30,34 @@ services:
         target: 443
     networks:
       - app
-  app:
+  offline-frontend:
     labels:
-      - app=app
-    image: blakexxxd/oop_node:latest
+      - app=frontend
+    image: blakexxxd/offline-frontend:latest
+    networks:
+      - app
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "200k"
+        max-file: "10"
+     deploy:
+       replicas: 1
+       update_config:
+         parallelism: 1
+         order: start-first
+         failure_action: rollback
+       rollback_config:
+         parallelism: 1
+         order: start-first
+       restart_policy:
+         condition: any
+         delay: 1s
+         window: 10s
+  offline-backend:
+    labels:
+      - app=backend
+    image: blakexxxd/offline-backend:latest
     networks:
       - app
     secrets: # secrets block only for 'web' service
@@ -59,7 +83,7 @@ services:
         condition: any
         delay: 1s
         window: 10s
-    env_file: app.env
+    env_file: backend.env
 
 networks:
   app:
