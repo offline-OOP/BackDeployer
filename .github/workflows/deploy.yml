@@ -20,4 +20,4 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.PORT }}
           envs: NEO4J_PASSWORD,REDIS_PASSWORD,MAIL_PASSWORD,JWT_KEY
-          script: sh -c "cd /home/disk/BackDeployer && sudo git checkout master && sudo git pull && NEO4J_PASSWORD=${{ secrets.NEO4J_PASSWORD }} REDIS_PASSWORD=${{ secrets.REDIS_PASSWORD }} MAIL_PASSWORD=${{ secrets.MAIL_PASSWORD }} JWT_KEY=${{ secrets.JWT_KEY }} sudo bash deploy.sh"
+          script: sh -c "cd BackDeployer && sudo git checkout master && sudo git pull && NEO4J_PASSWORD=${{ secrets.NEO4J_PASSWORD }} REDIS_PASSWORD=${{ secrets.REDIS_PASSWORD }} MAIL_PASSWORD=${{ secrets.MAIL_PASSWORD }} JWT_KEY=${{ secrets.JWT_KEY }} sudo bash deploy.sh"
